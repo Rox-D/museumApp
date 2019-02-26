@@ -1,0 +1,34 @@
+
+    <div style="text-align:left">
+      <h1> Rijksmuseum artwork explorer
+      </h1> 
+        <button mat-raised-button class="back-button" color="accent" (click)="onBack()">            
+            <mat-icon>arrow_back</mat-icon>
+            Go Back to gallery 
+        </button>     
+      </div>
+      <div *ngIf="selectedArtwork$ | async as artwork" >
+          <mat-card  class="artwork-details-card" >
+              <mat-card-header>
+                <mat-card-title>
+                  {{artwork.title}}           
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <h4>{{artwork.subTitle}} </h4>
+                  </mat-card-subtitle>
+                  <button mat-icon-button class="header-button" [style.color]='isMarked(artwork) ? "red" : "black"' 
+                  (click)="markAsFavorite(artwork)">
+                      <mat-icon>  favorite
+                      </mat-icon>
+                    </button>
+              </mat-card-header>        
+               <img mat-card-image [src] ="artwork.webImage.url" alt="Photo of a masterpiece">
+                <mat-card-content>
+                  <h2>{{artwork.scLabelLine}}</h2>
+                  <h3>{{artwork.plaqueDescriptionEnglish}}</h3>
+                  <h3>{{artwork.label.description}}</h3>
+              </mat-card-content>
+              <mat-card-footer>
+              </mat-card-footer>
+            </mat-card>
+      </div>

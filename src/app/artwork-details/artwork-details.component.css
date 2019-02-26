@@ -1,0 +1,21 @@
+.back-button {
+    position: relative;
+    top: 5px;
+    right: 10px;
+    font-size: 18px;
+  }
+
+  .header-button {
+    font-size: 18px;
+    float: right;
+  }
+
+  .mat-card-image {
+    width: calc(100% - 30px);
+    height: auto;
+    overflow: hidden;
+  }
+
+  .mat-card-content {
+    text-align: justify;
+  }

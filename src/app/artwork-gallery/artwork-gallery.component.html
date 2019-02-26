@@ -1,0 +1,32 @@
+
+    <div style="text-align:left" class="searchItems">
+      <h1> Rijksmuseum artwork explorer
+      </h1> 
+      <mat-form-field class="searchBar" appearance="fill" color="primary">
+          <input type="text" matInput #keyword placeholder="Enter an artist name..." (keyup.enter)="onSearch(keyword.value)">    
+        </mat-form-field>
+        <button mat-raised-button class="searchButton" text="Search" color="accent" (click)="onSearch(keyword.value)">
+            <mat-icon>search</mat-icon>
+        </button>     
+      </div>
+        
+   <div>   
+  <mat-grid-list *ngIf="artworks$ | async as artworks" cols="2" rowHeight="6:4" color="primary">
+    <mat-grid-tile *ngFor="let artwork of artworks" color="primary">
+      <mat-card class="artwork-card" (click)= "showDetails(artwork.objectNumber)" >
+        <mat-card-header>
+          <mat-card-title>
+            {{artwork.title}}           
+          </mat-card-title>
+        </mat-card-header>        
+         <img mat-card-image [src] ="artwork.webImage.url" alt="Photo of a masterpiece">
+          <mat-card-content>
+        </mat-card-content>
+        <mat-card-footer>
+          <button mat-raised-button color="accent">LIKE</button>
+          <button mat-raised-button color="accent">SHARE</button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  </div>
